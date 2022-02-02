@@ -44,7 +44,7 @@ class DatabaseHelper {
     var dir = await getDatabasesPath();
     var path = dir + "topics.db";
     var database =
-        await openDatabase(path, version: 10, onCreate: (db, version) async {
+        await openDatabase(path, version: 1, onCreate: (db, version) async {
       await db.execute('''
           CREATE table $tableName (
             $columnId integer primary key autoincrement,
@@ -59,7 +59,7 @@ class DatabaseHelper {
             $revDate5 text default null,
             $revDate6 text default null,
             $lastRevised text default null,
-            $pending text default 'yes',
+            $pending text default 'yes'
           )
            ''');
       await db.execute('''
